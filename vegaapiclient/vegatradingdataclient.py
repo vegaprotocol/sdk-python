@@ -9,7 +9,9 @@ class VegaTradingDataClient(GRPCClient):
 
     def __init__(self, url: str, channel=None) -> None:
         super().__init__(url, channel=channel)
-        self._corestate = trading_data_grpc.TradingDataServiceStub(self.channel)
+        self._tradingdata = trading_data_grpc.TradingDataServiceStub(
+            self.channel
+        )
 
     def __getattr__(self, funcname):
-        return getattr(self._corestate, funcname)
+        return getattr(self._tradingdata, funcname)
