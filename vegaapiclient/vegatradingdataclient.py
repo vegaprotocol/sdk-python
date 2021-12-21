@@ -4,7 +4,7 @@ from .grpcclient import GRPCClient
 
 class VegaTradingDataClient(GRPCClient):
     """
-    The Vega Core State Client talks to a back-end node.
+    The Vega Trading Data Client talks to a back-end node.
     """
 
     def __init__(self, url: str, channel=None) -> None:
